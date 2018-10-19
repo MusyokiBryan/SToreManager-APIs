@@ -22,3 +22,12 @@ class Products(Resource):
         response = product.create_product(product_name=arguments["product_name"],
                                           product_price=arguments["product_price"])
         return response, 201
+
+
+class Product(Resource):
+    """contains GeT, DeL & PUT methods"""
+
+    @staticmethod
+    def get(product_id):
+        response = product.get_a_product(product_id=product_id)
+        return response, 200

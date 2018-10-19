@@ -17,3 +17,8 @@ class Products:
                                  "product_price": product_price, }
         res = self.products[new_id]
         return {"msg": "Product added successfully", "data": res}
+    
+    def get_a_product(self, product_id):
+        if self.products == {}:
+            return {"txt": "Product not found"}
+        return self.products[product_id]
