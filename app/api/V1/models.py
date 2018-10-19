@@ -57,3 +57,7 @@ class Sales:
         self.sales[sale_id] = {"product_name": product_name, "number": number, "sell_price": sell_price}
         return {"msg": "Sale Edited"}
 
+    def delete_a_sale(self, sale_id):
+        del self.sales[sale_id]
+        return {"txt": "sale Deleted"}
+

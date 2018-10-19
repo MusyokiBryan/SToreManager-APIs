@@ -94,3 +94,8 @@ class Sale(Resource):
         response = sales_s.edit_sale(sale_id=sale_id, product_name=args["product_name"], number=args["number"],
                                      sell_price=["sell_price"])
         return response
+
+    @staticmethod
+    def delete(sale_id):
+        response = sales_s.delete_a_sale(sale_id=sale_id)
+        return response
