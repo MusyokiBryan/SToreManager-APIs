@@ -22,7 +22,7 @@ class Products:
         if self.products == {}:
             return {"txt": "Product not found"}
         return self.products[product_id]
-    
+
     def delete_a_product(self, product_id):
         del self.products[product_id]
         return {"txt": "Product Deleted"}
