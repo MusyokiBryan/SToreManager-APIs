@@ -79,3 +79,18 @@ class Sale(Resource):
     def get(sale_id):
         response = sales_s.get_a_sale(sale_id=sale_id)
         return response, 200
+
+    @staticmethod
+    @sales_api.expect(edit_a_sale)
+    def put(sale_id):
+        parser = reqparse.RequestParser()
+        parser.add_argument("product_name", type=str, help="product name must be provided", location=["json"],
+                            required=True)
+        parser.add_argument("number", type=int, help="number of products must be provided", location=["json"],
+                            required=True)
+        parser.add_argument("sell_price", type=int, help="selling price must be provided", location=["json"],
+                            required=True)
+        args = parser.parse_args()
+        response = sales_s.edit_sale(sale_id=sale_id, product_name=args["product_name"], number=args["number"],
+                                     sell_price=["sell_price"])
+        return response
