@@ -31,3 +31,8 @@ class Product(Resource):
     def get(product_id):
         response = product.get_a_product(product_id=product_id)
         return response, 200
+
+    @staticmethod
+    def delete(product_id):
+        response = product.delete_a_product(product_id=product_id)
+        return response, 204
