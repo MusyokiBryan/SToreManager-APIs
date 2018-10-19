@@ -32,3 +32,11 @@ class Products:
                                      "product_price": product_price}
         return {"msg": "Sale Edited"}
 
+class Sales:
+    """Functionality of products"""
+    sales = {}
+
+    def see_sales(self):
+        if self.sales == {}:
+            return {"txt": "No sales added."}
+        return self.sales

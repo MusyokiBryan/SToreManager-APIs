@@ -49,3 +49,9 @@ class Product(Resource):
         response = product.edit_product(product_id=product_id, product_name=arguments["product_name"],
                                         product_price=arguments["product_price"])
         return response, 201
+
+class Sales(Resource):
+    @staticmethod
+    def get():
+        response = sales_s.see_sales()
+        return response, 200
