@@ -27,3 +27,8 @@ class Products:
         del self.products[product_id]
         return {"txt": "Product Deleted"}
 
+    def edit_product(self, product_id, product_name, product_price):
+        self.products[product_id] = {"product_id": product_id, "product_name": product_name,
+                                     "product_price": product_price}
+        return {"msg": "Sale Edited"}
+

@@ -36,3 +36,16 @@ class Product(Resource):
     def delete(product_id):
         response = product.delete_a_product(product_id=product_id)
         return response, 204
+
+    @staticmethod
+    def put(product_id):
+        parser = reqparse.RequestParser()
+        parser.add_argument("product_name", type=str, help="product name should be provided", required=True,
+                            location=["json"])
+
+        parser.add_argument("product_price", type=int, help="price should be provided", required=True,
+                            location=["json"])
+        arguments = parser.parse_args()
+        response = product.edit_product(product_id=product_id, product_name=arguments["product_name"],
+                                        product_price=arguments["product_price"])
+        return response, 201
