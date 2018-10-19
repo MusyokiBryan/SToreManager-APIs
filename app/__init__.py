@@ -2,7 +2,6 @@ from flask import Flask
 from flask_restplus import Api
 from Instance.config import app_config
 
-
 def create_app(config_name):
     app = Flask(__name__, instance_relative_config=True)
 
@@ -25,3 +24,4 @@ def create_app(config_name):
     api.add_namespace(admin_api,path="/api/v1")
 
     return app
+	

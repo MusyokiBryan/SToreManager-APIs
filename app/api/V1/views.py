@@ -1,4 +1,27 @@
 from flask_restplus import Resource, reqparse, Namespace, fields
+from .models import Products, Sales, Users
+
+product = Products()
+user = Users()
+sales_s = Sales()
+admin_api = Namespace("Admin", description="all admin Endpoints")
+product_api = Namespace("Products", description="all products Endpoints")
+sales_api = Namespace("Sales", description=" all sales Endpoints")
+user_api = Namespace("Users", description=" all user Endpoints")
+
+create_product = product_api.model("Create product", {"product_name": fields.String,
+                                                      "product_price": fields.Integer})
+edit_product = product_api.model("edit a product", {"product_name": fields.String,
+                                                    "product_price": fields.Integer})
+post_a_sale = sales_api.model("Create Sale Record", {"product_name": fields.String,
+                                                     "number": fields.Integer, "sell_price": fields.Integer})
+edit_a_sale = sales_api.model("edit a Sale Record", {"product_name": fields.String,
+                                                     "number": fields.Integer, "sell_price": fields.Integer})
+register_user = user_api.model("Create a user", {"user_name": fields.String, "email": fields.String,
+                                                 "password": fields.String})
+login_user = user_api.model("log in user", {"user_name": fields.String,
+                                            "password": fields.String})
+
 
 
 class Products(Resource):
