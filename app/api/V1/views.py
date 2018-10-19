@@ -125,3 +125,9 @@ class Admin(Resource):
     def get():
         response = user.get_users()
         return response, 200
+
+class AdminDel(Resource):
+    @staticmethod
+    def delete(user_name):
+        response = user.delete_a_user(user_name=user_name)
+        return response

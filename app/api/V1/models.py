@@ -75,3 +75,7 @@ class Users:
             return {"txt": "No sales added."}
         return self.users
 
+    def delete_a_user(self, user_name):
+        del self.users[user_name]
+        return {"txt": "user Deleted"}
+
