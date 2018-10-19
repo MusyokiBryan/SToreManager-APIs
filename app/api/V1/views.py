@@ -118,3 +118,10 @@ class CreateUsers(Resource):
         response = user.register_user(user_name=arguments["user_name"],
                                       email=arguments["email"], password=arguments["password"])
         return response
+
+class Admin(Resource):
+
+    @staticmethod
+    def get():
+        response = user.get_users()
+        return response, 200

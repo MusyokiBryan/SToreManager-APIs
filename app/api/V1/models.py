@@ -70,3 +70,8 @@ class Users:
         res = self.users[user_name]
         return {"msg": "user added successfully", "data": res}
 
+    def get_users(self):
+        if self.users == {}:
+            return {"txt": "No sales added."}
+        return self.users
+
