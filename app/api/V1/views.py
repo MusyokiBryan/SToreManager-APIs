@@ -9,3 +9,16 @@ class Products(Resource):
     def get():
         response = product.get_all_products()
         return response, 200
+
+    @product_api.expect(create_product)
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument("product_name", type=str, help="product name should be provided", required=True,
+                            location=["json"])
+
+        parser.add_argument("product_price", type=int, help="price should be provided", required=True,
+                            location=["json"])
+        arguments = parser.parse_args()
+        response = product.create_product(product_name=arguments["product_name"],
+                                          product_price=arguments["product_price"])
+        return response, 201
