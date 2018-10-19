@@ -99,3 +99,22 @@ class Sale(Resource):
     def delete(sale_id):
         response = sales_s.delete_a_sale(sale_id=sale_id)
         return response
+
+class CreateUsers(Resource):
+
+    @staticmethod
+    @user_api.expect(register_user)
+    def post():
+        parser = reqparse.RequestParser()
+        parser.add_argument("user_name", type=str, help="user name should be provided", required=True,
+                            location=["json"])
+
+        parser.add_argument("email", type=str, help="email should be provided", required=True,
+                            location=["json"])
+
+        parser.add_argument("password", type=str, help="password should be provided", required=True,
+                            location=["json"])
+        arguments = parser.parse_args()
+        response = user.register_user(user_name=arguments["user_name"],
+                                      email=arguments["email"], password=arguments["password"])
+        return response
