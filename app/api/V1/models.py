@@ -32,6 +32,7 @@ class Products:
                                      "product_price": product_price}
         return {"msg": "Sale Edited"}
 
+
 class Sales:
     """Functionality of products"""
     sales = {}
@@ -40,3 +41,9 @@ class Sales:
         if self.sales == {}:
             return {"txt": "No sales added."}
         return self.sales
+
+    def post_a_sale(self, product_name, number, sell_price):
+        new_id = len(self.sales) + 1
+        self.sales[new_id] = {"product_name": product_name, "number": number,
+                              "sell_price": sell_price}
+        return {"msg": "added successfully"}
