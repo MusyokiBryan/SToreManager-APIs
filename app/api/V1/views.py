@@ -73,3 +73,9 @@ class Sales(Resource):
                                        number=arguments["number"], sell_price=arguments["sell_price"])
 
         return response, 201
+
+class Sale(Resource):
+    @staticmethod
+    def get(sale_id):
+        response = sales_s.get_a_sale(sale_id=sale_id)
+        return response, 200

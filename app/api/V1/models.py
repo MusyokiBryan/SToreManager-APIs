@@ -47,3 +47,8 @@ class Sales:
         self.sales[new_id] = {"product_name": product_name, "number": number,
                               "sell_price": sell_price}
         return {"msg": "added successfully"}
+
+    def get_a_sale(self, sale_id):
+        if self.sales == {} or sale_id not in self.sales:
+            return {"txt": "No sales added."}
+        return self.sales[sale_id]
