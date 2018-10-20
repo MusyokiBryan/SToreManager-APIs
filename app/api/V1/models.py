@@ -1,3 +1,6 @@
+from werkzeug.security import generate_password_hash
+
+
 class Products:
     """Functionality of products"""
 
@@ -67,6 +70,7 @@ class Sales:
         del self.sales[sale_id]
         return {"txt": "sale Deleted"}
 
+
 class Users:
     users = {"kratos": {"email": "kratso@something.com", "password": generate_password_hash("olympus"), "admin": True}}
 
@@ -84,4 +88,3 @@ class Users:
     def delete_a_user(self, user_name):
         del self.users[user_name]
         return {"txt": "user Deleted"}
-
