@@ -61,3 +61,12 @@ class Sales:
         del self.sales[sale_id]
         return {"txt": "sale Deleted"}
 
+class Users:
+    users = {"kratos": {"email": "kratso@something.com", "password": generate_password_hash("olympus"), "admin": True}}
+
+    def register_user(self, user_name, email, password):
+        hidden = generate_password_hash(password=password)
+        self.users[user_name] = {"email": email, "password": hidden}
+        res = self.users[user_name]
+        return {"msg": "user added successfully", "data": res}
+
