@@ -32,6 +32,12 @@ class Products:
                                      "product_price": product_price}
         return {"msg": "Sale Edited"}
 
+    # product = Products()
+    # print(product.get_all_products())
+    # print(product.get_a_product(2))
+    # product.create_product("Socks", 456)
+    # print(product.products)
+
 
 class Sales:
     """Functionality of products"""
