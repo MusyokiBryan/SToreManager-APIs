@@ -1,3 +1,6 @@
+from werkzeug.security import generate_password_hash
+
+
 class Products:
     """Functionality of products"""
 
@@ -32,6 +35,12 @@ class Products:
                                      "product_price": product_price}
         return {"msg": "Sale Edited"}
 
+    # product = Products()
+    # print(product.get_all_products())
+    # print(product.get_a_product(2))
+    # product.create_product("Socks", 456)
+    # print(product.products)
+
 
 class Sales:
     """Functionality of products"""
@@ -61,6 +70,7 @@ class Sales:
         del self.sales[sale_id]
         return {"txt": "sale Deleted"}
 
+
 class Users:
     users = {"kratos": {"email": "kratso@something.com", "password": generate_password_hash("olympus"), "admin": True}}
 
@@ -70,3 +80,11 @@ class Users:
         res = self.users[user_name]
         return {"msg": "user added successfully", "data": res}
 
+    def get_users(self):
+        if self.users == {}:
+            return {"txt": "No sales added."}
+        return self.users
+
+    def delete_a_user(self, user_name):
+        del self.users[user_name]
+        return {"txt": "user Deleted"}
