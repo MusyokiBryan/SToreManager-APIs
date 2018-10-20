@@ -23,7 +23,6 @@ login_user = user_api.model("log in user", {"user_name": fields.String,
                                             "password": fields.String})
 
 
-
 class Products(Resource):
     """contains GeT & POST methods"""
     product = Products()
@@ -73,6 +72,7 @@ class Product(Resource):
                                         product_price=arguments["product_price"])
         return response, 201
 
+
 class Sales(Resource):
     @staticmethod
     def get():
@@ -96,6 +96,7 @@ class Sales(Resource):
                                        number=arguments["number"], sell_price=arguments["sell_price"])
 
         return response, 201
+
 
 class Sale(Resource):
     @staticmethod
@@ -123,6 +124,7 @@ class Sale(Resource):
         response = sales_s.delete_a_sale(sale_id=sale_id)
         return response
 
+
 class CreateUsers(Resource):
 
     @staticmethod
@@ -142,6 +144,7 @@ class CreateUsers(Resource):
                                       email=arguments["email"], password=arguments["password"])
         return response
 
+
 class Admin(Resource):
 
     @staticmethod
@@ -149,8 +152,17 @@ class Admin(Resource):
         response = user.get_users()
         return response, 200
 
+
 class AdminDel(Resource):
     @staticmethod
     def delete(user_name):
         response = user.delete_a_user(user_name=user_name)
         return response
+
+product_api.add_resource(Products, "/products")
+product_api.add_resource(Product, "/product/<int:product_id>")
+sales_api.add_resource(Sales, "/sales")
+sales_api.add_resource(Sale, "/sale/<int:sale_id>")
+user_api.add_resource(CreateUsers, "/users")
+admin_api.add_resource(Admin, "/users/admin")
+admin_api.add_resource(AdminDel, "/users/admin/<user_name>")
