@@ -1,10 +1,6 @@
 import unittest
-import sys  # fix import errors
-import os
 from app.tests.V1.base import ConfigTestCase
 import json
-
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 class ProductTest(ConfigTestCase):
