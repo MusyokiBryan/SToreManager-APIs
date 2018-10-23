@@ -19,12 +19,10 @@ class ConfigTestCase(unittest.TestCase):
         product.create_product("Bryan", 456)
         product.create_product("Jason", 847)
 
-        sales_ss = Sales()
+        sales_s = Sales()
         sales_s.post_a_sale("Brian", 456, 5000)
         sales_s.post_a_sale("jay", 556, 2000)
 
-
-print("**********************************************")
 
 if __name__ == '__main__':
     unittest.main()

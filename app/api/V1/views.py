@@ -25,7 +25,6 @@ login_user = user_api.model("log in user", {"user_name": fields.String,
 
 class Products(Resource):
     """contains GeT & POST methods"""
-    product = Products()
 
     @staticmethod
     def get():
@@ -158,6 +157,7 @@ class AdminDel(Resource):
     def delete(user_name):
         response = user.delete_a_user(user_name=user_name)
         return response
+
 
 product_api.add_resource(Products, "/products")
 product_api.add_resource(Product, "/product/<int:product_id>")
