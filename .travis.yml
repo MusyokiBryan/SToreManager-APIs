@@ -8,8 +8,9 @@ install:
 
 env.bat:
   -SECRET_KEY=musyokiBryan
+  
 script:
-  - pytest --cov=app
+  - coverage run -m unittest
 
 after_success:
   - coveralls
