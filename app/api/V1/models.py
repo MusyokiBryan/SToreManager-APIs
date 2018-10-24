@@ -49,7 +49,7 @@ class Sales:
 
     def get_a_sale(self, sale_id):
         if self.sales == {} or sale_id not in self.sales:
-            return {"txt": "Sale not found."}
+            return {"txt": "Sale_id does not exist."}
         return self.sales[sale_id]
 
     def post_a_sale(self, product_name, number, sell_price):
@@ -66,9 +66,9 @@ class Sales:
 
     def delete_a_sale(self, sale_id):
         if sale_id not in self.sales:
-            return {"txt": "sale not found"}
+            return {"txt": "sale_id not found"}
         del self.sales[sale_id]
-        return {"txt": "sale Deleted"}
+        return {"txt": "sale Deleted succesfully"}
 
 
 class Users:
