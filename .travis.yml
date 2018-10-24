@@ -1,9 +1,10 @@
 language: python
-python: 3.6.5
+python:
+   "3.6"
 
 install:
-  - pip install -r requirements.txt
-  - pip install coveralls
+   -pip install -r requirements.txt
+
 
 script:
-  - pytest --cov=app
+   -pytest --cov=app
