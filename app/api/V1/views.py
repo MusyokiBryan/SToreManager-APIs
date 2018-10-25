@@ -12,7 +12,7 @@ user_api = Namespace("Users", description=" all user Endpoints")
 create_product = product_api.model("Create product", {"product_name": fields.String,
                                                       "product_price": fields.Integer})
 edit_product = product_api.model("edit a product", {"product_name": fields.String,
-                                                    "product_price": fields.Integer})
+                                                    "product_price": fields.Integer,"quantity":fields.Integer})
 post_a_sale = sales_api.model("Create Sale Record", {"product_name": fields.String,
                                                      "number": fields.Integer, "sell_price": fields.Integer})
 edit_a_sale = sales_api.model("edit a Sale Record", {"product_name": fields.String,
@@ -38,11 +38,14 @@ class Products(Resource):
         parser.add_argument("product_name", type=str, help="product name should be provided", required=True,
                             location=["json"])
 
+        parser.add_argument("quantity", type=int, help="quantity should be provided", required=True,
+                            location=["json"])
+
         parser.add_argument("product_price", type=int, help="price should be provided", required=True,
                             location=["json"])
         arguments = parser.parse_args()
         response = product.create_product(product_name=arguments["product_name"],
-                                          product_price=arguments["product_price"])
+                                          product_price=arguments["product_price"], quantity=arguments["quantity"])
         return response, 201
 
 
