@@ -16,8 +16,8 @@ class ConfigTestCase(unittest.TestCase):
         self.client = self.app.test_client
 
         product = Products()
-        product.create_product("Bryan", 456)
-        product.create_product("Jason", 847)
+        product.create_product("Bryan",49, 456)
+        product.create_product("Jason",96, 847)
 
         sales_s = Sales()
         sales_s.post_a_sale("Brian", 456, 5000)
