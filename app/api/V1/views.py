@@ -146,6 +146,21 @@ class CreateUsers(Resource):
         response = user.register_user(user_name=arguments["user_name"],
                                       email=arguments["email"], password=arguments["password"])
         return response
+		
+class LoginUser(Resource):  # resource contains attributes POST PUT GET
+    @staticmethod
+    @user_api.expect(login_user)
+    def post():
+        parser = reqparse.RequestParser()
+        parser.add_argument("user_name", type=str, help="User name should be provided", required=True,
+                            location=["json"])
+
+        parser.add_argument("password", type=str, help="password should be provided", required=True,
+                            location=["json"])
+        arguments = parser.parse_args()
+        response = user.login(user_name=arguments["user_name"], password=arguments["password"])
+        return response
+
 
 
 class Admin(Resource):
