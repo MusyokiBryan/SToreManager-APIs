@@ -17,7 +17,7 @@ class ProductTest(ConfigTestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_create_product(self):
-        product = {"product_name": "shirts", "product_price": 5500}
+        product = {"product_name": "shirts","quantity":49, "product_price": 5500}
         response = self.client().post("/api/v1/products", data=json.dumps(product), content_type="application/json")
         self.assertEqual(response.status_code, 201)
 
