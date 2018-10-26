@@ -48,15 +48,6 @@ class Products:
         return {"txt": "product Deleted"}
 
 
-# product = Products()
-
-
-# print(product.get_all_products())
-# print(product.get_a_product(2))
-# product.create_product("Socks", 456)
-# print(product.products)
-
-
 class Sales:
     """Functionality of sales"""
     sales = {}
@@ -90,16 +81,6 @@ class Sales:
         return {"txt": "sale Deleted"}
 
 
-# sales_s = Sales()
-
-
-# print(sales_s.see_sales())
-# print(sales_s.get_a_sale(2))
-# sales_s.post_a_sale("Bryan", 456, 5000)
-# print(sales_s.sales)
-# print(sales_s.get_a_sale(1))
-
-
 class Users:
     users = {"kratos": {"email": "kratso@something.com", "password": generate_password_hash("olympus"), "admin": True}}
 
@@ -129,9 +110,3 @@ class Users:
     def delete_a_user(self, user_name):
         del self.users[user_name]
         return {"txt": "user Deleted"}
-
-
-# user = Users()
-# user.register_user("athena", "athena@something.com", "olympus")
-# user.login("kratos", "olympus")
-# print(user.users)
